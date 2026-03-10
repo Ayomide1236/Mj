@@ -409,6 +409,202 @@
 <body>
 
 <div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursoace); padding: 13px 0; }
+  .ticker-track { display: flex; gap: 72px; white-space: nowrap; animation: ticker 12s linear infinite; }
+  .ticker-item { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+  .ticker-item .dot { color: var(--accent); margin-right: 8px; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* STATS */
+  .stats-bar { border-bottom: 1px solid var(--border); display: flex; background: var(--bg); }
+  .stat { flex: 1; padding: 36px 40px; text-align: center; border-right: 1px solid var(--border); transition: background 0.3s; }
+  .stat:last-child { border-right: none; }
+  .stat:hover { background: rgba(255,215,0,0.03); }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--accent); letter-spacing: 2px; line-height: 1; }
+  .stat-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 8px; }
+
+  /* SECTIONS */
+  section { padding: 120px 48px; }
+  .section-tag { font-size: 10px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+  .section-tag::before { content: '[ '; }
+  .section-tag::after { content: ' ]'; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(36px, 5vw, 62px); font-weight: 800; line-height: 1.08; margin-bottom: 24px; }
+  .section-title em { font-style: normal; color: transparent; -webkit-text-stroke: 1px var(--text); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .about-text p { font-size: 13px; line-height: 2; color: var(--muted); margin-bottom: 16px; }
+  .about-text p strong { color: var(--text); font-weight: 400; }
+  .about-visual { position: relative; border: 1px solid var(--border); overflow: hidden; }
+  .about-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255,107,0,0.07) 0%, transparent 50%);
+    pointer-events: none; z-index: 1;
+  }
+  .about-pfp { width: 100%; display: block; }
+
+  /* ROLES */
+  .creds-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .creds-inner { max-width: 1200px; margin: 0 auto; }
+  .creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 56px; }
+  .cred-card { background: var(--surface); padding: 52px 40px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .cred-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .cred-card:hover { background: rgba(255,215,0,0.02); }
+  .cred-card:hover::before { transform: scaleX(1); }
+  .cred-icon { width: 52px; height: 52px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--accent); letter-spacing: 1px; margin-bottom: 28px; }
+  .cred-role { font-size: 9px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
+  .cred-org { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 14px; }
+  .cred-desc { font-size: 12px; line-height: 1.8; color: var(--muted); }
+
+  /* SKILLS */
+  .skills-inner { max-width: 1200px; margin: 0 auto; }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 56px; }
+  .skill-card { background: var(--bg); padding: 40px 32px; transition: background 0.3s; position: relative; overflow: hidden; }
+  .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .skill-card:hover { background: rgba(255,215,0,0.02); }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-icon { font-size: 26px; margin-bottom: 16px; display: block; }
+  .skill-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+  .skill-desc { font-size: 11px; line-height: 1.8; color: var(--muted); }
+
+  /* CTA */
+  .cta { background: var(--surface); border-top: 1px solid var(--border); text-align: center; position: relative; overflow: hidden; }
+  .cta::before { content: 'MJ'; position: absolute; font-family: 'Bebas Neue', sans-serif; font-size: 320px; color: transparent; -webkit-text-stroke: 1px rgba(255,215,0,0.03); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; }
+  .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .cta-line { display: block; width: 1px; height: 72px; background: linear-gradient(to bottom, transparent, var(--accent), transparent); margin: 0 auto 48px; }
+  .cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 9vw, 110px); line-height: 0.88; letter-spacing: 3px; margin-bottom: 24px; }
+  .cta-sub { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 48px; }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { padding: 36px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 4px; }
+  .footer-logo span { color: var(--accent); }
+  footer p { font-size: 10px; color: var(--muted); letter-spacing: 1px; }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a { font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* RESPONSIVE */
+
+  /* ── LARGE DESKTOP 1400px+ ── */
+  @media (min-width: 1400px) {
+    nav { padding: 28px 80px; }
+    .hero { padding: 140px 80px 100px; gap: 80px; }
+    .hero-pfp { width: 380px; }
+    section { padding: 140px 80px; }
+    footer { padding: 40px 80px; }
+  }
+
+  /* ── SMALL DESKTOP / LAPTOP 1200px ── */
+  @media (max-width: 1200px) {
+    .hero { gap: 40px; }
+    .hero-pfp { max-width: 280px; }
+    .skills-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ── TABLET LANDSCAPE 1024px ── */
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 120px 40px 80px;
+      gap: 40px;
+    }
+    .hero-left { display: flex; flex-direction: column; align-items: center; }
+    .hero-creds { justify-content: center; }
+    .hero-sub { text-align: left; max-width: 560px; }
+    .hero-pfp { max-width: 260px; margin: 0 auto; }
+    .hero-actions { justify-content: center; }
+    .about-grid { gap: 48px; }
+    .creds-grid { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── TABLET PORTRAIT 768px ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-name .m {
+      background: linear-gradient(135deg, #FFD700 0%, #FF6B00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      -webkit-text-stroke: 0px transparent;
+      font-size: clamp(80px, 22vw, 140px);
+    }
+
+    .hero { padding: 100px 24px 70px; gap: 32px; }
+    .hero-name { font-size: clamp(64px, 16vw, 110px); }
+    .hero-pfp { max-width: 210px; }
+    .hero-tag { font-size: 9px; }
+    .badge { font-size: 9px; padding: 6px 12px; }
+
+    section { padding: 80px 24px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-visual { max-height: 340px; overflow: hidden; }
+
+    .creds-grid { grid-template-columns: 1fr; }
+    .cred-card { padding: 36px 28px; }
+
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .stats-bar { flex-wrap: wrap; }
+    .stat { flex: 1 1 50%; border-bottom: 1px solid var(--border); padding: 24px 20px; }
+    .stat-num { font-size: 36px; }
+
+    .cta-title { font-size: clamp(44px, 12vw, 80px); }
+    .cta-actions { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-ghost { width: 100%; max-width: 300px; text-align: center; justify-content: center; }
+
+    footer { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+
+  /* ── LARGE MOBILE 480px ── */
+  @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    .nav-logo { font-size: 20px; letter-spacing: 3px; }
+
+    .hero { padding: 90px 16px 60px; gap: 28px; }
+    .hero-name { font-size: clamp(54px, 18vw, 88px); }
+    .hero-pfp { max-width: 175px; }
+    .hero-sub { font-size: 12px; }
+
+    section { padding: 60px 16px; }
+    .section-title { font-size: clamp(28px, 8vw, 46px); }
+
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-card { padding: 28px 20px; }
+
+    .stat { flex: 1 1 100%; }
+    .stat-num { font-size: 40px; }
+
+    .cred-card { padding: 28px 20px; }
+    .cred-org { font-size: 18px; }
+
+    .cta { padding: 60px 16px; }
+    .cta-title { font-size: clamp(38px, 13vw, 68px); }
+
+    footer { padding: 24px 16px; }
+  }
+
+  /* ── SMALL MOBILE 360px ── */
+  @media (max-width: 360px) {
+    .hero-name { font-size: 50px; }
+    .hero-pfp { max-width: 150px; }
+    .badge { font-size: 8px; padding: 5px 10px; }
+    .section-title { font-size: 26px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="curso  }
   .cursor-ring {
     position: fixed; width: 34px; height: 34px;
@@ -1038,4 +1234,5 @@
 </script>
 </body>
 </html>
+
 
